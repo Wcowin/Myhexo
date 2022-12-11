@@ -4476,6 +4476,12 @@ h1.page-title + .tag-cloud-list {
 #waline-wrap .wl-comment-actions > button:not(last-child) {
   padding-right: 4px;
 }
+#waline-wrap textarea {
+  background: url("https://pica.zhimg.com/50/v2-998a89d14918c1cb61c2f8f60931f488_720w.jpg?source=1940ef5c") 100% 100% no-repeat;
+}
+#waline-wrap textarea:focus {
+  background-image: none;
+}
 .fireworks {
   position: fixed;
   top: 0;
