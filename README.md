@@ -2,4 +2,5 @@
 
 **基于Hexo构建**
 
-![](https://cdn.jsdelivr.net/gh/pi-dal/figure-bed@master/v2-f9654b817205f6af3e472af284ecc2b2_1200x500.jpg)
+![](https://cn.mcecy.com/image/20230102/ec5b0b425bbdab00478f93779ae225b9.jpeg)  
+
