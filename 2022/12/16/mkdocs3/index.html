@@ -1,0 +1,353 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>(三)解决 mkdocs部署 Github Pages 自定义域名失效的问题 | Wcowin的个人网站</title><meta name="author" content="Wcowin"><meta name="copyright" content="Wcowin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在&#x2F;docs目录下创建一个 CNAME 的 无后缀 文件，然后在里面填入你的域名 因为每次在 Custom domain 添加后都会给我们生成一个 CNAME 的文件，但是因为项目我们没有 pull 到本地，所以造成了，每次 push 之后 CNAME 信息被 clear 了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(三)解决 mkdocs部署 Github Pages 自定义域名失效的问题">
+<meta property="og:url" content="https://wcowin.gitee.io/myhexo/2022/12/16/mkdocs3/index.html">
+<meta property="og:site_name" content="Wcowin的个人网站">
+<meta property="og:description" content="在&#x2F;docs目录下创建一个 CNAME 的 无后缀 文件，然后在里面填入你的域名 因为每次在 Custom domain 添加后都会给我们生成一个 CNAME 的文件，但是因为项目我们没有 pull 到本地，所以造成了，每次 push 之后 CNAME 信息被 clear 了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cn.mcecy.com/image/20230104/168986d4b26a927a46f6a0dbe318c88b.png">
+<meta property="article:published_time" content="2022-12-16T12:03:02.000Z">
+<meta property="article:modified_time" content="2023-01-04T14:30:52.002Z">
+<meta property="article:author" content="Wcowin">
+<meta property="article:tag" content="Mkdocs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cn.mcecy.com/image/20230104/168986d4b26a927a46f6a0dbe318c88b.png"><link rel="shortcut icon" href="/myhexo/img/faxian.png"><link rel="canonical" href="https://wcowin.gitee.io/myhexo/2022/12/16/mkdocs3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/myhexo/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/myhexo/',
+  algolia: undefined,
+  localSearch: {"path":"/myhexo/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":80,"languages":{"author":"作者: Wcowin","link":"链接: ","source":"来源: Wcowin的个人网站","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '(三)解决 mkdocs部署 Github Pages 自定义域名失效的问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-01-04 22:30:52'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/progress_bar.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/myhexo/img/jiazai.gif" data-lazy-src="/myhexo/img/IMG_8631.JPG" onerror="onerror=null;src='https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/myhexo/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/myhexo/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/myhexo/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/myhexo/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-compass"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/myhexo/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/myhexo/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/myhexo/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/myhexo/Message/"><i class="fa-fw fa-solid fa-comment"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/myhexo/link/"><i class="fa-fw fa-solid fa-gear"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cn.mcecy.com/image/20230104/168986d4b26a927a46f6a0dbe318c88b.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/myhexo/">Wcowin的个人网站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/myhexo/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-compass"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/myhexo/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/myhexo/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/myhexo/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/myhexo/Message/"><i class="fa-fw fa-solid fa-comment"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/myhexo/link/"><i class="fa-fw fa-solid fa-gear"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">(三)解决 mkdocs部署 Github Pages 自定义域名失效的问题<a class="post-edit-link" href="null_posts/mkdocs3.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-16T12:03:02.000Z" title="发表于 2022-12-16 20:03:02">2022-12-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-01-04T14:30:52.002Z" title="更新于 2023-01-04 22:30:52">2023-01-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/myhexo/categories/Mkdocs/">Mkdocs</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">80</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="(三)解决 mkdocs部署 Github Pages 自定义域名失效的问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>在/docs目录下创建一个 CNAME 的 无后缀 文件，然后在里面填入你的域名<br><img src= "/myhexo/img/jiazai.gif" data-lazy-src="https://cn.mcecy.com/image/20230104/7db805f8d433b5ddab65a5af901b0ef9.png"></p>
+<p>因为每次在 Custom domain 添加后都会给我们生成一个 CNAME 的文件，但是因为项目我们没有 pull 到本地，所以造成了，每次 push 之后 CNAME 信息被 clear 了</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://wcowin.gitee.io/myhexo">Wcowin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://wcowin.gitee.io/myhexo/2022/12/16/mkdocs3/">https://wcowin.gitee.io/myhexo/2022/12/16/mkdocs3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wcowin.gitee.io/myhexo" target="_blank">Wcowin的个人网站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/myhexo/tags/Mkdocs/">Mkdocs</a></div><div class="post_share"><div class="social-share" data-image="https://cn.mcecy.com/image/20230104/168986d4b26a927a46f6a0dbe318c88b.png" data-sites="facebook,twitter,qq,wechat,weibo"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/myhexo/img/%E5%BE%AE%E4%BF%A1.png" target="_blank"><img class="post-qr-code-img" src= "/myhexo/img/jiazai.gif" data-lazy-src="/myhexo/img/%E5%BE%AE%E4%BF%A1.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/myhexo/img/%E6%94%AF%E4%BB%98%E5%AE%9D.png" target="_blank"><img class="post-qr-code-img" src= "/myhexo/img/jiazai.gif" data-lazy-src="/myhexo/img/%E6%94%AF%E4%BB%98%E5%AE%9D.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/myhexo/2022/12/16/mkdocs2/"><img class="prev-cover" src= "/myhexo/img/jiazai.gif" data-lazy-src="https://cn.mcecy.com/image/20230104/168986d4b26a927a46f6a0dbe318c88b.png" onerror="onerror=null;src='/myhexo/null'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">(二)Mkdocs部署静态网页至GitHub pages配置说明(mkdocs.yml)</div></div></a></div><div class="next-post pull-right"><a href="/myhexo/2022/12/16/iphonexianmian/"><img class="next-cover" src= "/myhexo/img/jiazai.gif" data-lazy-src="https://cn.mcecy.com/image/20230104/41a01628b2dae55e4c0413dd96d0f1c6.png" onerror="onerror=null;src='/myhexo/null'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">苹果iphone /iOS 限免网站合集</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/myhexo/2022/12/16/mkdocs1/" title="(一)利用mkdocs部署静态网页至GitHubpages"><img class="cover" src= "/myhexo/img/jiazai.gif" data-lazy-src="https://cn.mcecy.com/image/20230104/168986d4b26a927a46f6a0dbe318c88b.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-01-04</div><div class="title">(一)利用mkdocs部署静态网页至GitHubpages</div></div></a></div><div><a href="/myhexo/2022/12/16/mkdocs2/" title="(二)Mkdocs部署静态网页至GitHub pages配置说明(mkdocs.yml)"><img class="cover" src= "/myhexo/img/jiazai.gif" data-lazy-src="https://cn.mcecy.com/image/20230104/168986d4b26a927a46f6a0dbe318c88b.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-01-04</div><div class="title">(二)Mkdocs部署静态网页至GitHub pages配置说明(mkdocs.yml)</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/myhexo/img/jiazai.gif" data-lazy-src="/myhexo/img/IMG_8631.JPG" onerror="this.onerror=null;this.src='https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png'" alt="avatar"/></div><div class="author-info__name">Wcowin</div><div class="author-info__description">Just for fun</div></div><div class="card-info-data site-data is-center"><a href="/myhexo/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/myhexo/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/myhexo/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Wcowin"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:wangkewen821@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://twitter.com/wcowin_" target="_blank" title="twitter"><i class="fa-brands fa-twitter"></i></a><a class="social-icon" href="https://space.bilibili.com/1407028951?spm_id_from=333.999.0.0" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">一个分享技术的博客平台</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/myhexo/2023/01/04/Pd/" title="PD虚拟机"><img src= "/myhexo/img/jiazai.gif" data-lazy-src="https://cn.mcecy.com/image/20230104/d1db46065e0bfaa1de92c2ea1c38ff3a.png" onerror="this.onerror=null;this.src='/myhexo/null'" alt="PD虚拟机"/></a><div class="content"><a class="title" href="/myhexo/2023/01/04/Pd/" title="PD虚拟机">PD虚拟机</a><time datetime="2023-01-04T12:09:02.000Z" title="发表于 2023-01-04 20:09:02">2023-01-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/myhexo/2022/12/30/homebrew/" title="Homebrew国内如何自动安装(国内地址)(Mac &amp; Linux)"><img src= "/myhexo/img/jiazai.gif" data-lazy-src="https://cn.mcecy.com/image/20230104/dd16fed834b387d7be472f1ce13a8cc7.jpg" onerror="this.onerror=null;this.src='/myhexo/null'" alt="Homebrew国内如何自动安装(国内地址)(Mac &amp; Linux)"/></a><div class="content"><a class="title" href="/myhexo/2022/12/30/homebrew/" title="Homebrew国内如何自动安装(国内地址)(Mac &amp; Linux)">Homebrew国内如何自动安装(国内地址)(Mac &amp; Linux)</a><time datetime="2022-12-30T12:09:02.000Z" title="发表于 2022-12-30 20:09:02">2022-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/myhexo/2022/12/17/webplay/" title="一些有趣的网站"><img src= "/myhexo/img/jiazai.gif" data-lazy-src="https://cn.mcecy.com/image/20230104/3442c8fc9bedde0eb4a9fa84193f4bea.png" onerror="this.onerror=null;this.src='/myhexo/null'" alt="一些有趣的网站"/></a><div class="content"><a class="title" href="/myhexo/2022/12/17/webplay/" title="一些有趣的网站">一些有趣的网站</a><time datetime="2022-12-17T12:09:02.000Z" title="发表于 2022-12-17 20:09:02">2022-12-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/myhexo/2022/12/16/xjiq/" title="小小Mac技巧"><img src= "/myhexo/img/jiazai.gif" data-lazy-src="https://cn.mcecy.com/image/20230104/084175f8efb437f6be0d84b6c85e481a.jpg" onerror="this.onerror=null;this.src='/myhexo/null'" alt="小小Mac技巧"/></a><div class="content"><a class="title" href="/myhexo/2022/12/16/xjiq/" title="小小Mac技巧">小小Mac技巧</a><time datetime="2022-12-16T15:08:07.122Z" title="发表于 2022-12-16 23:08:07">2022-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/myhexo/2022/12/16/sunhuai/" title="提示 「“XXX”已损坏，无法打开。 您应该将它移到废纸篓。」「打不开 xxx，因为它来自身份不明的开发者」解决方法"><img src= "/myhexo/img/jiazai.gif" data-lazy-src="https://cn.mcecy.com/image/20230104/a81f1903348deaef59fe4758373dcb05.jpeg" onerror="this.onerror=null;this.src='/myhexo/null'" alt="提示 「“XXX”已损坏，无法打开。 您应该将它移到废纸篓。」「打不开 xxx，因为它来自身份不明的开发者」解决方法"/></a><div class="content"><a class="title" href="/myhexo/2022/12/16/sunhuai/" title="提示 「“XXX”已损坏，无法打开。 您应该将它移到废纸篓。」「打不开 xxx，因为它来自身份不明的开发者」解决方法">提示 「“XXX”已损坏，无法打开。 您应该将它移到废纸篓。」「打不开 xxx，因为它来自身份不明的开发者」解决方法</a><time datetime="2022-12-16T15:08:07.121Z" title="发表于 2022-12-16 23:08:07">2022-12-16</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cn.mcecy.com/image/20230104/168986d4b26a927a46f6a0dbe318c88b.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By Wcowin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hello, welcome to my <a href=" http://wcowin.gitee.io/myhexo">Website</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/myhexo/js/utils.js"></script><script src="/myhexo/js/main.js"></script><script src="/myhexo/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/myhexo/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://myhexo-test-ja557zq5g-wcowin.vercel.app/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, {"placeholder":"请文明评论呀","pageSize":8,"lang":"zh-cn","requiredFields":["mail"],"comment":true}))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>window.$crisp = [];
+window.CRISP_WEBSITE_ID = "6b119ec0-9372-42e8-b0e5-f9087924a31a";
+(function () {
+  d = document;
+  s = d.createElement("script");
+  s.src = "https://client.crisp.chat/l.js";
+  s.async = 1;
+  d.getElementsByTagName("head")[0].appendChild(s);
+})();
+$crisp.push(["safe", true])
+
+if (true) {
+  $crisp.push(["do", "chat:hide"])
+  $crisp.push(["on", "chat:closed", function() {
+    $crisp.push(["do", "chat:hide"])
+  }])
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      $crisp.push(["do", "chat:show"])
+      $crisp.push(["do", "chat:open"])
+
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      $crisp.push(["do", "chat:hide"])
+    }
+    function chatBtnShow () {
+      $crisp.push(["do", "chat:show"])
+    }
+  }
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/artitalk/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
