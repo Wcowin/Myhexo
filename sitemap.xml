@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/2022/12/16/mkdocs2/</loc>
-    
-    <lastmod>2023-01-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://wcowin.gitee.io/myhexo/2022/12/04/LaTeX/</loc>
     
     <lastmod>2023-01-04</lastmod>
@@ -250,14 +241,14 @@
   </url>
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/tags/Markdown/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/tags/Music/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/tags/Music/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/tags/Markdown/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -287,14 +278,14 @@
 
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/categories/%E5%AD%A6%E6%9C%AF/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/categories/Apple/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/categories/Apple/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/categories/%E5%AD%A6%E6%9C%AF/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -308,14 +299,14 @@
   </url>
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/categories/Markdown/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/categories/%E9%97%B2%E8%81%8A/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/categories/%E9%97%B2%E8%81%8A/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/categories/Markdown/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
