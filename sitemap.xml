@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wcowin.gitee.io/myhexo/2022/12/16/mkdocs2/</loc>
+    
+    <lastmod>2023-01-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wcowin.gitee.io/myhexo/2022/12/04/LaTeX/</loc>
     
     <lastmod>2023-01-04</lastmod>
@@ -30,15 +39,6 @@
   
   <url>
     <loc>https://wcowin.gitee.io/myhexo/2022/12/16/mkdocs3/</loc>
-    
-    <lastmod>2023-01-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wcowin.gitee.io/myhexo/2022/12/16/mkdocs2/</loc>
     
     <lastmod>2023-01-04</lastmod>
     
@@ -236,14 +236,14 @@
 
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/tags/Mac/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/tags/Apple/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/tags/Apple/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/tags/Mac/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -257,14 +257,14 @@
   </url>
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/tags/iphone/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/tags/Music/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/tags/Music/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/tags/iphone/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -287,7 +287,7 @@
 
   
   <url>
-    <loc>https://wcowin.gitee.io/myhexo/categories/%E5%AD%A6%E6%9C%AF/</loc>
+    <loc>https://wcowin.gitee.io/myhexo/categories/Apple/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -295,13 +295,6 @@
   
   <url>
     <loc>https://wcowin.gitee.io/myhexo/categories/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wcowin.gitee.io/myhexo/categories/Apple/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -316,6 +309,13 @@
   
   <url>
     <loc>https://wcowin.gitee.io/myhexo/categories/PD%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
+    <lastmod>2023-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wcowin.gitee.io/myhexo/categories/%E5%AD%A6%E6%9C%AF/</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
