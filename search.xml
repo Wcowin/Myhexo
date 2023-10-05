@@ -282,11 +282,11 @@
     
     
     <entry>
-      <title>Mac小技巧：去除系统截图名的日期后缀</title>
-      <link href="/myhexo/2022/12/16/jietu/"/>
-      <url>/myhexo/2022/12/16/jietu/</url>
+      <title>Mac 无法访问 github 的解决办法</title>
+      <link href="/myhexo/2022/12/16/jiasugithub/"/>
+      <url>/myhexo/2022/12/16/jiasugithub/</url>
       
-        <content type="html"><![CDATA[<p>默认情况下，在 OS X 中用 Command-Shift-3 等快捷键来截图时，你会发现生成的图片名称分为两个部分：「屏幕快照」字样后跟着「截图的日期和时间」部分（如 2019-12-27 15.19.45）。可能对于大多数人来说，这是一个非常有用的功能，因为它可以让你知晓截图的具体时间，或是根据它来排序截图。但是对笔者或其他一些人来说，这可能是烦人的，我需要对截图文件再次进行重命名操作。</p><ul><li>第一步：启动「终端」应用程序。</li></ul><!-- ![](https://static.skyandroid.cn/images/data/1577432836240930.png?x-oss-process=style/w_1240) --><ul><li>第二步：复制如下命令后粘贴到终端窗口中，然后按下 return 键（enter）。<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture "include-date" 0</span><br></pre></td></tr></tbody></table></figure></li><li>第三步：接着输入如下命令，然后再次按 return 键。<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall SystemUIServer</span><br></pre></td></tr></tbody></table></figure></li></ul><p>就是这样简单。现在你会发现，当你截图的时候，文件名称中就已经不再包含截图的日期和时间啦。</p><p><img src="https://static.skyandroid.cn/images/data/1577432991750269.png?x-oss-process=style/w_1240"></p><p>!!! note<br>    注 1：如果你想恢复默认式样，将第二步中的「1」替换成「0」即可。</p><pre><code>注 2：以后你每次截屏，名称还会自动依次按照「截屏快照」，「截屏快照 1」，「截屏快照 2」……来排序，非常方便。</code></pre>]]></content>
+        <content type="html"><![CDATA[<p>方案一：</p><p>第一步：打开 folder文件夹</p><p>第二步： command + shift + g 搜索，输入 /private/etc/hosts 找到 hosts 文件</p><p>第三步：编辑修改，输入</p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://github.com 204.232.175.94 http://gist.github.com 107.21.116.220 </span><br><span class="line">http://help.github.com 207.97.227.252 http://nodeload.github.com 199.27.76.130 </span><br><span class="line">http://raw.github.com 107.22.3.110 http://status.github.com 204.232.175.78 </span><br><span class="line">http://training.github.com 207.97.227.243 http://www.github.com</span><br></pre></td></tr></tbody></table></figure><p>注意：hosts 文件是不能直接修改的，需要使用备份替换。一般情况下，修改原有的 hosts 文件时，系统会自动提醒你保存备份，修改完成，使用备份替换原有文件即可。</p><p>第四部：测试</p><p><a href="https://github.com/">https://github.com/</a></p><p>方案二：</p><p>如果上述方法还是不行….，可以尝试以下方案：<br><a href="https://tool.chinaz.com/dns/?type=1&amp;host=github.com&amp;ip=">查询_github.com 的 DNS.选择 工TL值最小的，响应最快的，使用 ip 地址访问</a></p>]]></content>
       
       
       <categories>
@@ -307,11 +307,11 @@
     
     
     <entry>
-      <title>Mac 无法访问 github 的解决办法</title>
-      <link href="/myhexo/2022/12/16/jiasugithub/"/>
-      <url>/myhexo/2022/12/16/jiasugithub/</url>
+      <title>Mac小技巧：去除系统截图名的日期后缀</title>
+      <link href="/myhexo/2022/12/16/jietu/"/>
+      <url>/myhexo/2022/12/16/jietu/</url>
       
-        <content type="html"><![CDATA[<p>方案一：</p><p>第一步：打开 folder文件夹</p><p>第二步： command + shift + g 搜索，输入 /private/etc/hosts 找到 hosts 文件</p><p>第三步：编辑修改，输入</p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://github.com 204.232.175.94 http://gist.github.com 107.21.116.220 </span><br><span class="line">http://help.github.com 207.97.227.252 http://nodeload.github.com 199.27.76.130 </span><br><span class="line">http://raw.github.com 107.22.3.110 http://status.github.com 204.232.175.78 </span><br><span class="line">http://training.github.com 207.97.227.243 http://www.github.com</span><br></pre></td></tr></tbody></table></figure><p>注意：hosts 文件是不能直接修改的，需要使用备份替换。一般情况下，修改原有的 hosts 文件时，系统会自动提醒你保存备份，修改完成，使用备份替换原有文件即可。</p><p>第四部：测试</p><p><a href="https://github.com/">https://github.com/</a></p><p>方案二：</p><p>如果上述方法还是不行….，可以尝试以下方案：<br><a href="https://tool.chinaz.com/dns/?type=1&amp;host=github.com&amp;ip=">查询_github.com 的 DNS.选择 工TL值最小的，响应最快的，使用 ip 地址访问</a></p>]]></content>
+        <content type="html"><![CDATA[<p>默认情况下，在 OS X 中用 Command-Shift-3 等快捷键来截图时，你会发现生成的图片名称分为两个部分：「屏幕快照」字样后跟着「截图的日期和时间」部分（如 2019-12-27 15.19.45）。可能对于大多数人来说，这是一个非常有用的功能，因为它可以让你知晓截图的具体时间，或是根据它来排序截图。但是对笔者或其他一些人来说，这可能是烦人的，我需要对截图文件再次进行重命名操作。</p><ul><li>第一步：启动「终端」应用程序。</li></ul><!-- ![](https://static.skyandroid.cn/images/data/1577432836240930.png?x-oss-process=style/w_1240) --><ul><li>第二步：复制如下命令后粘贴到终端窗口中，然后按下 return 键（enter）。<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture "include-date" 0</span><br></pre></td></tr></tbody></table></figure></li><li>第三步：接着输入如下命令，然后再次按 return 键。<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall SystemUIServer</span><br></pre></td></tr></tbody></table></figure></li></ul><p>就是这样简单。现在你会发现，当你截图的时候，文件名称中就已经不再包含截图的日期和时间啦。</p><p><img src="https://static.skyandroid.cn/images/data/1577432991750269.png?x-oss-process=style/w_1240"></p><p>!!! note<br>    注 1：如果你想恢复默认式样，将第二步中的「1」替换成「0」即可。</p><pre><code>注 2：以后你每次截屏，名称还会自动依次按照「截屏快照」，「截屏快照 1」，「截屏快照 2」……来排序，非常方便。</code></pre>]]></content>
       
       
       <categories>
@@ -524,7 +524,7 @@
       <link href="/myhexo/2022/12/12/Music/"/>
       <url>/myhexo/2022/12/12/Music/</url>
       
-        <content type="html"><![CDATA[<div id="aplayer-bcKSmEfv" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2678227934" data-server="tencent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="600px" data-preload="none" data-theme="#ad7a86"></div><!--     <div id="aplayer-IOQhmLcq" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="2663696059" data-server="tencent" data-type="artist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="600px" data-preload="auto" data-theme="#ad7a86"    ></div> --><div class="aplayer no-destroy" data-id="2663696059" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false"> </div>]]></content>
+        <content type="html"><![CDATA[<div id="aplayer-cyAdQDVX" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2678227934" data-server="tencent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="600px" data-preload="none" data-theme="#ad7a86"></div><!--     <div id="aplayer-yJvEBuDf" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="2663696059" data-server="tencent" data-type="artist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="600px" data-preload="auto" data-theme="#ad7a86"    ></div> --><div class="aplayer no-destroy" data-id="2663696059" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false"> </div>]]></content>
       
       
       <categories>
